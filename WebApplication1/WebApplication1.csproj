@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Mit.Store.Catalog.Application.Contracts\Units\" />
+    <Folder Include="Mit.Store.Catalog.Application\Units\" />
+    <Folder Include="Mit.Store.Catalog.MongoDB\Products\" />
+    <Folder Include="Shared\" />
+  </ItemGroup>
+
+</Project>
