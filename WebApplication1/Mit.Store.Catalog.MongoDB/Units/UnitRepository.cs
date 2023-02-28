@@ -1,9 +1,12 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using WebApplication1.Mit.Store.Catalog.Domain.Units;
 using WebApplication1.Mit.Store.Catalog.MongoDB.Commons;
 
 namespace WebApplication1.Mit.Store.Catalog.MongoDB.Units
 {
+
+
     public class UnitRepository: IUnitRepository
     {
         private readonly TestContextMongoContext _context;
@@ -21,10 +24,14 @@ namespace WebApplication1.Mit.Store.Catalog.MongoDB.Units
 
         public async Task UpdateUnitAssync(Unit unit)
         {
-            var d=Builders<Unit>.Filter.Eq(w=>w.Id,unit.Id);   
-            await _context.Units.UpdateOneAsync(d, unit,null);
+            var filter=Builders<Unit>.Filter.Eq(w=>w.Id,unit.Id);
+            var up = Builders<Unit>.Update;
 
-            UpdateDefinition()
+           var  upd =up.Set(x=>x.Title,unit.Title);
+            await _context.Units.UpdateOneAsync(filter, upd, null);
+
+
+            //or
             await _context.Units.ReplaceOneAsync(x=>x.Id==unit.Id, unit);
         }
     
