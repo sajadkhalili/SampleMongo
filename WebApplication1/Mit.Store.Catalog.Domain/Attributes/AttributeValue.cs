@@ -4,6 +4,7 @@
     {
         public long Key { get; set; }
         public T Value { get; set; }
+        public int DisplayOrder { get; set; }
     }
 
 

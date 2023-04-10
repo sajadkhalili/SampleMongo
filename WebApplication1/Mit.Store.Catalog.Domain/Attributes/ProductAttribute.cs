@@ -28,8 +28,6 @@ namespace WebApplication1.Mit.Store.Catalog.Domain.Attributes
         public ElementType ElementType { get; protected set; }
         public int UnitId { get; protected set; }
         // public DataType dataTypeDataType { get; protected set; }
-
-
         public List<AttributeValue> Values { get; protected set; }
 
     }
